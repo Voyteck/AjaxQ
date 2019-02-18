@@ -3,6 +3,8 @@
 
 See http://foliotek.github.com/AjaxQ for a demonstration and documentation
 
+Extended by Voyteck with priority option that can be added to .ajax opts to prioritize call
+
 ## Usage
 
 `$.ajaxq` follows the [$.ajax](http://api.jquery.com/jQuery.ajax/) options and return value, with an extra first parameter (the queue name).
@@ -10,18 +12,24 @@ See http://foliotek.github.com/AjaxQ for a demonstration and documentation
   ```javascript
     $.ajaxq(name, opts);
   ```
+  
+  you can add additiona boolean parameter `priority` that will make the call to be executed prioritized
     
 `$.getq` follows the [$.get](http://api.jquery.com/jQuery.get/) options and return value, with an extra first parameter (the queue name).
 
   ```javascript
     $.getq(name, opts);
   ```
+  
+  you can add additiona boolean parameter `priority` that will make the call to be executed prioritized
      
 `$.postq` follows the [$.post](http://api.jquery.com/jQuery.post/) options and return value, with an extra first parameter (the queue name).
 
   ```javascript
     $.postq(name, opts);
   ```
+  
+  you can add additiona boolean parameter `priority` that will make the call to be executed prioritized
      
 `$.ajaxq.isRunning` returns a boolean representing if any requests are currently running.  `qname` is an optional parameter.
 

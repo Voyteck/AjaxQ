@@ -4,6 +4,8 @@
 // https://github.com/Foliotek/ajaxq
 // Uses CommonJS, AMD or browser globals to create a jQuery plugin.
 
+// Extended with priority option added to AJAX options - that allows call to be prioritized
+
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
@@ -55,21 +57,24 @@
             jqXHR.always(dequeue); // make sure to dequeue the next request AFTER the done and fail callbacks are fired
 
             return jqXHR;
-        });
+        }, opts.priority);
 
         return promise;
 
 
         // If there is no queue, create an empty one and instantly process this item.
         // Otherwise, just add this item onto it for later processing.
-        function enqueue(cb) {
+        function enqueue(cb, priority = false) {
             if (!queues[qname]) {
                 queues[qname] = [];
                 var xhr = cb();
                 activeReqs[qname] = xhr;
             }
             else {
-                queues[qname].push(cb);
+            	if (opts.priority)
+            		queues[qname].unshift(cb);
+            	else
+            		queues[qname].push(cb);
             }
         }
 
