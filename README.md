@@ -1,9 +1,17 @@
 # AjaxQ
 ## A tiny, simple jQuery plugin for sequential ajax requests
 
-See http://foliotek.github.com/AjaxQ for a demonstration and documentation
+See http://foliotek.github.com/AjaxQ for a demonstration and documentation 
 
-Extended by Voyteck with priority option that can be added to .ajax opts to prioritize call
+Extended by Voyteck with priority option that can be added to .ajax opts to prioritize call - e.g.:
+	```javascript
+		$.ajaxq('someName', {
+			... // .ajax() parameters
+			priority: true,
+			... // other .ajax() parameters
+		}
+	```
+	
 
 ## Usage
 
@@ -13,7 +21,7 @@ Extended by Voyteck with priority option that can be added to .ajax opts to prio
     $.ajaxq(name, opts);
   ```
   
-  you can add additiona boolean parameter `priority` that will make the call to be executed prioritized
+  you can add additional boolean parameter `priority` to opts that will make the call to be executed prioritized (will be added to the beginning of queue)
     
 `$.getq` follows the [$.get](http://api.jquery.com/jQuery.get/) options and return value, with an extra first parameter (the queue name).
 
@@ -21,7 +29,7 @@ Extended by Voyteck with priority option that can be added to .ajax opts to prio
     $.getq(name, opts);
   ```
   
-  you can add additiona boolean parameter `priority` that will make the call to be executed prioritized
+  you can add additional boolean parameter `priority` to opts that will make the call to be executed prioritized (will be added to the beginning of queue)
      
 `$.postq` follows the [$.post](http://api.jquery.com/jQuery.post/) options and return value, with an extra first parameter (the queue name).
 
@@ -29,7 +37,7 @@ Extended by Voyteck with priority option that can be added to .ajax opts to prio
     $.postq(name, opts);
   ```
   
-  you can add additiona boolean parameter `priority` that will make the call to be executed prioritized
+  you can add additional boolean parameter `priority` to opts that will make the call to be executed prioritized (will be added to the beginning of queue)
      
 `$.ajaxq.isRunning` returns a boolean representing if any requests are currently running.  `qname` is an optional parameter.
 
