@@ -4,13 +4,13 @@
 See http://foliotek.github.com/AjaxQ for a demonstration and documentation 
 
 Extended by Voyteck with priority option that can be added to .ajax opts to prioritize call - e.g.:
-	```javascript
-		$.ajaxq('someName', {
-			... // .ajax() parameters
-			priority: true,
-			... // other .ajax() parameters
-		}
-	```
+```javascript
+$.ajaxq('someName', {
+	... // .ajax() parameters
+	priority: true,
+	... // other .ajax() parameters
+}
+```
 	
 
 ## Usage
